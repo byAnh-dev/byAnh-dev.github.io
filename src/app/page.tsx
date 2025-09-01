@@ -1,103 +1,112 @@
-import Image from "next/image";
+'use client'
+
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { ArrowRight, Download, Mail } from 'lucide-react'
+import EventBadge from '@/components/EventBadge'
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  }
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut" as const
+      }
+    }
+  }
+
+  return (
+    <div className="min-h-screen bg-black  relative overflow-hidden">
+
+
+      {/* Main Content */}
+      <div className="flex min-h-screen content-center">
+        {/* Left Side - Information */}
+        <div className="w-full lg:w-1/3 flex items-center justify-center p-8 lg:p-20 lg:ml-40 relative z-10" >
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/95 to-transparent z-10"></div>
+          
+          {/* Content */}
+          <div className="relative z-20 max-w-2xl">
+            <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-8">
+              <motion.div variants={itemVariants} className="space-y-6">
+                <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white" style={{ fontSize: '4rem', lineHeight: 1.05, fontWeight: 700, marginBottom: '0.5rem'  }}>
+                  Anh Hoang
+                </h1>
+                <p className="text-xl md:text-2xl text-white/80 max-w-xl leading-relaxed" style={{ fontSize: '1.2rem', lineHeight: 1.25, marginBottom: '2rem'  }}>
+                  Less noise. <br/>More signal. <br/>Better software. <br/>Finding clean solutions for messy problems.
+                </p>
+              </motion.div>
+
+
+              {/* CTAs */}
+              <motion.div 
+                variants={itemVariants}
+                className="flex flex-col sm:flex-row gap-4 pt-8"
+              >
+                <Link
+                  href="/projects"
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-1 bg-black rounded-lg border-2 border-white/30 text-white rounded-lg hover:border-white hover:bg-white/10 hover:text-black transition-all duration-300 font-medium"
+                  
+                >
+                  View Projects
+                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+                
+                <a
+                  href="/resume.pdf"
+                  download
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-1 border-2 border-white/30 text-white rounded-lg hover:border-white hover:bg-white/10 transition-all duration-300 font-medium "
+                >
+                  <Download size={20} />
+                  Download Resume
+                </a>
+                
+                <Link
+                  href="/contact"
+                  className="group inline-flex items-center justify-center gap-3 px-8  bg-pink-500 text-black rounded-lg hover:bg-pink-600 transition-all duration-300 font-medium"
+                >
+                  <Mail size={20} />
+                  Contact
+                </Link>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        {/* Right Side - Interactive EventBadge */}
+        <div className="lg:block w-2/3 relative z-0">
+          {/* Gradient Overlay for smooth transition */}
+          <div className="absolute left-0 top-0 bottom-0 w-48 bg-gradient-to-r from-black to-transparent"></div>
+          
+          {/* EventBadge Container */}
+          <div className="relative h-full lg:mr-4" style={{ marginTop: '-3rem'}}>
+            <EventBadge
+              width="100%"
+              height="125vh"
+              variant="hero"
+              minSpeed={10}
+              maxSpeed={30}
+              backgroundColor="#ec4899"
+              className="w-full h-1/3"
+            />
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
