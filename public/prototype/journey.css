@@ -1,0 +1,123 @@
+.journey-page{--navy:#161e34;--yellow:#f6ce25;--soft:#f3f4f5;color-scheme:light}
+.journey-page [hidden]{display:none!important}
+.journey-page .header nav [aria-current]{text-decoration:underline;text-underline-offset:7px}
+.journey-main{padding:0 var(--gutter)}
+.journey-overview{height:calc(100svh - 168px);min-height:500px;display:flex;flex-direction:column}
+.journey-intro{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:28px 0 20px}
+.journey-intro .eyebrow{color:var(--muted)}
+.journey-intro h1{font-size:clamp(44px,5.5vw,80px);font-weight:400;letter-spacing:-.045em;line-height:1.1;margin:10px 0 0}
+.journey-intro h1>span{color:var(--blue)}
+.journey-intro>p{font-size:15px;line-height:1.65;color:var(--muted);margin-top:16px}
+.journey-stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;border-top:1px solid var(--rule);overflow:hidden}
+.map-sheet{position:relative;width:min(100%,calc((100svh - 350px)*2.142857));aspect-ratio:1200/560;flex:none;background-image:radial-gradient(#dedede .6px,transparent .6px);background-size:12px 12px}
+.world-map,.journey-routes,.plane-cursor,.ocean-pixels{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.world-map,.ocean-pixels{image-rendering:pixelated}
+.journey-routes{overflow:visible}
+.route-line{stroke:var(--navy);stroke-width:1.5;stroke-dasharray:1 10;stroke-linecap:round;opacity:.15}
+.route-progress{stroke:var(--blue);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1 10;animation:route-flow 1.2s linear infinite}
+.route-progress.is-current{stroke:var(--navy)}
+@keyframes route-flow{from{stroke-dashoffset:0}to{stroke-dashoffset:-22}}
+.journey-motion-paused .route-progress,.journey-offscreen .route-progress{animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){.route-progress{animation:none}}
+.marker-leaders{stroke:var(--navy);stroke-width:1;opacity:.65}
+#flight-plane{color:var(--navy);filter:drop-shadow(0 2px 0 white) drop-shadow(0 -2px 0 white)}
+.ocean-label{position:absolute;font-size:9px;letter-spacing:.15em;line-height:1.7;color:#737983;pointer-events:none;text-align:center}
+.ocean-pacific{left:7%;top:52%}.ocean-atlantic{left:43%;top:46%}.ocean-indian{left:67%;top:69%}
+.map-marker{position:absolute;transform:translate(-50%,-50%);min-height:44px;min-width:44px;display:flex;align-items:center;justify-content:center;z-index:2}
+.marker-dot{display:block;width:12px;height:12px;background:var(--navy);border:3px solid white;box-shadow:0 0 0 1px var(--navy)}
+.marker-label{position:absolute;white-space:nowrap;display:flex;gap:6px;align-items:center;font-size:12px;background:var(--paper);padding:6px 8px;border:1px solid var(--rule);color:var(--ink)}
+.marker-label small{font-size:9px;color:var(--muted)}
+.map-marker[data-place="haiphong"] .marker-label{right:38px;top:57px}
+.map-marker[data-place="kansas"] .marker-label{right:34px;top:26px}
+.map-marker[data-place="hongkong"] .marker-label{left:44px;top:62px}
+.map-marker[data-place="japan"] .marker-label{left:14px;bottom:48px}
+.map-marker:hover .marker-label,.map-marker[aria-expanded="true"] .marker-label{background:var(--navy);border-color:var(--navy);color:white}
+.map-marker:hover .marker-label small,.map-marker[aria-expanded="true"] .marker-label small{color:var(--yellow)}
+.map-marker[aria-expanded="true"] .marker-dot{background:var(--blue);box-shadow:0 0 0 3px var(--blue)}
+.journey-playing .map-marker[data-revealed="false"]{opacity:0;pointer-events:none;visibility:hidden}
+.journey-playing .map-marker[data-current="true"] .marker-dot{background:var(--yellow);box-shadow:0 0 0 3px var(--navy)}
+.map-caption{position:absolute;bottom:14px;left:0;right:0;display:flex;justify-content:space-between;pointer-events:none;color:var(--muted)}
+.map-caption .eyebrow{font-size:9px}
+.journey-console{flex:none;border-top:1px solid var(--rule);padding-bottom:20px}
+.journey-status-row{display:flex;justify-content:space-between;gap:16px;align-items:center;min-height:56px}
+#journey-status{font-size:14px;line-height:1.5}
+.journey-controls{display:flex;gap:24px;flex-shrink:0}
+.journey-controls button{min-height:44px;font-size:12px;display:flex;align-items:center;gap:12px}
+.journey-stops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.journey-stops li{border-top:2px solid var(--rule);position:relative}
+.journey-stops li.is-visited{border-color:var(--blue)}
+.journey-stops li.is-current::before{content:"";position:absolute;left:0;top:-4px;width:6px;height:6px;background:var(--blue)}
+.journey-stops a{display:flex;gap:12px;align-items:start;width:100%;text-align:left;padding:14px 0 4px;min-height:64px;font-size:15px}
+.stop-number{font-size:10px;color:var(--muted);padding-top:4px}
+.journey-stops small{display:block;font-size:11px;color:var(--muted);margin-top:6px}
+.journey-detail{position:absolute;z-index:4;left:0;top:16px;bottom:40px;width:300px;max-width:35%;background:var(--paper);border:1px solid var(--navy);padding:20px 24px;overflow:auto;animation:detail-enter .22s ease-out}
+.detail-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.detail-close{font-family:Arial,sans-serif;font-size:28px;width:44px;height:44px;margin:-12px -12px -8px 0}
+.detail-art{height:64px;display:flex;align-items:center;margin:12px 0;color:var(--blue)}
+.detail-art svg{width:56px;height:56px;image-rendering:pixelated}
+#detail-country{color:var(--muted);font-size:10px}
+.journey-detail h2{font-size:36px;font-weight:400;letter-spacing:-.04em;line-height:1.15;margin:10px 0 12px}
+.detail-subtitle{font-size:15px;margin-bottom:12px}
+.detail-copy{font-size:14px;color:var(--muted);line-height:1.7}
+.detail-bottom{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--rule);margin-top:24px}
+.detail-bottom button{width:44px;height:44px;font-size:22px}.detail-bottom button:disabled{opacity:.3;cursor:default}
+.detail-hint{font-size:10px;color:var(--muted);line-height:1.5}
+.journey-fallback{padding:24px 0;line-height:1.7}
+@media(min-width:701px) and (max-height:850px){.detail-art{display:none}.journey-detail{padding:16px 20px}.detail-bottom{margin-top:16px}.detail-copy{font-size:13px}.detail-top{margin-bottom:16px}}
+@keyframes detail-enter{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+@media(min-width:901px) and (pointer:fine){.map-sheet.has-plane-cursor{cursor:none}.map-marker{cursor:pointer}}
+@media(max-width:1100px){.journey-detail{width:270px;padding:16px 20px}.detail-art{height:40px;margin:4px 0}.detail-art svg{height:36px;width:36px}.journey-detail h2{font-size:30px}.map-marker[data-place="japan"] .marker-label{left:auto;right:16px}.map-marker[data-place="hongkong"] .marker-label{left:8px;top:70px}}
+@media(max-width:900px){.journey-overview{min-height:560px}.map-sheet{width:100%}.journey-stage:has(.journey-detail:not([hidden])){overflow:visible}.journey-detail{max-width:none;width:280px}.journey-intro>p{font-size:13px}.marker-label{font-size:10px;padding:4px 6px}.marker-label small{font-size:8px}.map-marker[data-place="haiphong"] .marker-label{right:26px;top:50px}.map-marker[data-place="hongkong"] .marker-label{left:0;top:78px}.journey-stops a{font-size:13px;gap:8px}.journey-stops small{font-size:10px}.ocean-label{font-size:8px}}
+@media(max-width:700px){.journey-page .header{min-height:96px}.journey-page nav{gap:12px}.journey-page nav a{font-size:12px}.journey-overview{height:auto;min-height:calc(100svh - 100px)}.journey-intro{padding:24px 0 20px;align-items:start;gap:12px}.journey-intro h1{font-size:44px}.journey-intro .eyebrow{font-size:9px}.journey-intro>p{font-size:11px;max-width:17ch;margin-top:22px}.journey-intro>p br{display:none}.journey-stage{flex:none;min-height:250px;display:flex;flex-direction:column;overflow:visible;padding:30px 0 42px}.map-sheet{width:100%}.map-caption{bottom:12px}.map-caption .eyebrow{font-size:8px}.map-caption>span:last-child{display:none}.ocean-label{font-size:6px}.journey-detail{position:relative;inset:auto;width:100%;max-width:none;margin-top:64px;padding:16px 20px;overflow:visible;animation:none}.detail-art{float:right;margin:16px 8px}.detail-top{margin-bottom:12px}.journey-detail h2{font-size:30px}.detail-bottom{margin-top:16px}.detail-hint{display:none}.journey-status-row{align-items:start;min-height:72px;gap:8px;padding-top:12px}#journey-status{font-size:12px;max-width:25ch}.journey-controls{gap:12px}.journey-controls button{font-size:10px;gap:6px;min-height:32px}.journey-stops{gap:8px}.journey-stops a{display:block;font-size:11px;line-height:1.5;padding-top:8px;min-height:76px}.stop-number{display:block;padding:0;margin-bottom:6px}.journey-stops small{display:none}.journey-console{padding-bottom:16px}.marker-dot{width:10px;height:10px;border-width:2px}.marker-label{font-size:9px}.marker-label small{display:none}.map-marker[data-place="kansas"] .marker-label{right:auto;left:5px;top:38px}.map-marker[data-place="haiphong"] .marker-label{right:20px;top:42px}.map-marker[data-place="hongkong"] .marker-label{left:auto;right:0;top:72px}.map-marker[data-place="japan"] .marker-label{left:auto;right:0;bottom:32px}}
+@media(prefers-reduced-motion:reduce){.journey-detail{animation:none}.plane-cursor{display:none}}
+/* Geographic pins stay exact; labels provide separate, non-overlapping targets. */
+.map-pin{position:absolute;transform:translate(-50%,-50%);width:12px;height:12px;background:var(--navy);border:3px solid white;box-shadow:0 0 0 1px var(--navy);pointer-events:none}
+.map-pin:has(+.map-marker[aria-expanded="true"]){background:var(--blue);box-shadow:0 0 0 3px var(--blue)}
+.journey-playing .map-pin:has(+.map-marker[data-revealed="false"]){visibility:hidden}
+.journey-playing .map-pin:has(+.map-marker[data-current="true"]){background:var(--yellow)}
+.map-marker .marker-label{position:static}
+.map-marker[data-place="haiphong"]{transform:translate(calc(-100% - 18px),24px)}
+.map-marker[data-place="kansas"]{transform:translate(calc(-100% - 14px),-8px)}
+.map-marker[data-place="hongkong"]{transform:translate(22px,30px)}
+.map-marker[data-place="japan"]{transform:translate(-10px,-64px)}
+.ocean-atlantic{left:35%;top:46%}
+@media(max-width:1100px){.map-marker[data-place="japan"]{transform:translate(calc(-100% + 12px),-60px)}.map-marker[data-place="hongkong"]{transform:translate(0,40px)}}
+@media(max-width:700px){.map-pin{width:10px;height:10px;border-width:2px}.map-marker[data-place="haiphong"]{transform:translate(calc(-100% - 12px),20px)}.map-marker[data-place="hongkong"]{transform:translate(-100%,68px)}.map-marker[data-place="japan"]{transform:translate(calc(-100% + 12px),-55px)}.map-marker[data-place="kansas"]{transform:translate(-50%,8px)}.journey-stage{padding-bottom:60px}.ocean-indian{display:none}}
+@media(max-width:700px) and (max-height:700px){.journey-overview{min-height:0}.journey-intro{padding:16px 0}.journey-intro h1{font-size:38px}.journey-intro>p{display:none}.journey-stage{min-height:200px;padding:18px 0 48px}.journey-status-row{min-height:64px}.journey-stops a{min-height:64px}.journey-console{padding-bottom:8px}}
+
+/* One independently swipeable photo card under each location heading. */
+.stop-gallery-arrow{margin-left:auto;color:var(--muted)}
+.detail-gallery-link{display:flex;justify-content:space-between;gap:16px;align-items:center;min-height:44px;font-size:12px;margin-top:12px;border-top:1px solid var(--rule)}
+.journey-photo-stops{padding-bottom:48px}
+.journey-photo-stops>li{min-width:0}
+.journey-photo-stops a{padding-bottom:20px}
+.location-gallery{min-width:0;padding:8px;border:1px solid var(--rule);scroll-margin-top:32px}
+.location-gallery:focus{outline:none}
+.location-gallery:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
+.location-photo-track{display:flex;aspect-ratio:4/5;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;cursor:grab;user-select:none;-webkit-user-select:none}
+.location-photo-track::-webkit-scrollbar{display:none}
+.location-photo-track:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.location-photo-track.is-dragging{scroll-snap-type:none;cursor:grabbing}
+.location-slide{flex:0 0 100%;min-width:0;height:100%;scroll-snap-align:start;scroll-snap-stop:always}
+.location-photo-placeholder{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--soft);color:var(--muted);font-size:14px}
+.location-slide:nth-child(2) .location-photo-placeholder{background:#f4f2ed}
+.location-slide:nth-child(3) .location-photo-placeholder{background:#edf0f5}
+.location-photo-placeholder small{font-size:10px}
+.location-slide img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.photo-pixel-icon{position:relative;width:36px;height:30px;border:2px solid #b8bbc2}
+.photo-pixel-icon::before{content:"";position:absolute;width:6px;height:6px;right:5px;top:5px;background:#b8bbc2}
+.photo-pixel-icon::after{content:"";position:absolute;left:4px;bottom:4px;width:6px;height:6px;background:#b8bbc2;box-shadow:6px -6px #b8bbc2,12px 0 #b8bbc2,18px 0 #b8bbc2}
+.location-photo-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px}
+.location-photo-controls button{width:44px;height:44px;font-size:20px;flex:none}
+.location-photo-controls button:disabled{color:var(--muted);opacity:.35;cursor:default}
+.photo-count{font-size:10px;letter-spacing:.08em;color:var(--muted)}
+.location-photo-hint{font-size:9px;line-height:1.6;text-align:center;color:var(--muted);padding:0 0 8px}
+.location-description{border-top:1px solid var(--rule);padding:16px 8px 12px}
+.location-description p{margin:0;font-size:13px;line-height:1.7;color:var(--muted)}
+.gallery-footer{display:flex;justify-content:space-between;align-items:center;gap:24px;border-top:1px solid var(--rule);padding:24px 0 32px;font-size:12px;color:var(--muted)}
+.gallery-footer a{display:flex;align-items:center;min-height:44px;white-space:nowrap}
+@media(max-width:900px){.journey-photo-stops{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 16px}.location-photo-track{aspect-ratio:1}.journey-overview{height:calc(100svh - 168px);min-height:500px}}
+@media(max-width:700px){.journey-overview{height:auto;min-height:calc(100svh - 180px)}.journey-photo-stops a{display:flex;font-size:15px;gap:12px;min-height:72px;padding:16px 0}.journey-photo-stops small{display:block;font-size:11px}.journey-photo-stops .stop-number{padding-top:3px}.location-photo-placeholder small{font-size:10px}.location-photo-hint{font-size:10px}.gallery-footer{font-size:11px;align-items:start;gap:16px}.gallery-footer>span{max-width:22ch}}
+@media(max-width:540px){.journey-photo-stops{grid-template-columns:1fr;gap:32px}.location-photo-track{aspect-ratio:4/3}.stop-gallery-arrow{display:none}}
+@media(max-width:700px) and (max-height:700px){.journey-overview{min-height:0}}
+

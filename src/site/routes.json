@@ -1,0 +1,19 @@
+{
+  "/": { "file": "index.html" },
+  "/journey/": { "file": "journey.html" },
+  "/writing/": { "file": "writing.html" },
+  "/doodle-board/": { "file": "doodle-board.html" },
+  "/writing/a-task-is-more-than-a-prompt/": { "file": "writing/a-task-is-more-than-a-prompt.html" },
+  "/writing/before-automating-do-it-once/": { "file": "writing/before-automating-do-it-once.html" },
+  "/writing/give-the-agent-a-finish-line/": { "file": "writing/give-the-agent-a-finish-line.html" },
+  "/writing/keep-the-failed-attempts/": { "file": "writing/keep-the-failed-attempts.html" },
+  "/writing/the-small-experiment-comes-first/": { "file": "writing/the-small-experiment-comes-first.html" },
+  "/writing/what-belongs-in-the-context/": { "file": "writing/what-belongs-in-the-context.html" },
+  "/projects/": { "redirect": "/archive/projects/" },
+  "/projects/fintech-app/": { "redirect": "/archive/projects/fintech-app/" },
+  "/projects/ai-syllabus-extractor/": { "redirect": "/archive/projects/ai-syllabus-extractor/" },
+  "/about/": { "redirect": "/journey/" },
+  "/contact/": { "redirect": "/#contact" },
+  "/thoughts/": { "redirect": "/writing/" },
+  "/reserve/": { "redirect": "/archive/reserve/" }
+}

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><title>My journey — Anh Hoang</title>
+  <link rel="preload" href="fonts/MalintonTrialVersion-Regular.otf" as="font" type="font/otf" crossorigin>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="journey.css">
+</head>
+<body class="journey-page">
+  <a class="skip" href="#journey">Skip to my journey</a>
+  <header class="header">
+    <a class="wordmark" href="screen.html" aria-label="Anh Hoang home">anh hoang<span class="mark" aria-hidden="true"></span></a>
+    <nav aria-label="Main navigation"><a href="screen.html#work">Work</a><a href="journey.html" aria-current="page">My journey</a><a href="writing.html">Writing</a><a href="screen.html#contact">Contact ↗</a></nav>
+  </header>
+  <main class="journey-main" id="journey" tabindex="-1">
+    <div class="journey-overview">
+    <section class="journey-intro" aria-labelledby="journey-title">
+      <div><p class="eyebrow">A LITTLE FURTHER FROM HOME</p><h1 id="journey-title">My journey<span>.</span></h1></div>
+      <p>More destinations incoming,<br> one trip at a time.</p>
+    </section>
+    <section class="journey-stage" aria-label="Interactive map of my journey">
+      <div class="map-sheet">
+        <canvas class="ocean-pixels" width="1200" height="560" aria-hidden="true"></canvas>
+        <img class="world-map" src="journey-map.svg" alt="Pixelated world map. Journey: Haiphong, Vietnam to Kansas, to Hong Kong, to Japan, and back to Kansas." width="1200" height="560" draggable="false">
+        <svg class="journey-routes" viewBox="0 0 1200 560" fill="none" aria-hidden="true">
+          <g class="route-lines"></g><g class="marker-leaders"></g>
+          <g id="flight-plane" hidden><path fill="currentColor" d="M-3-21h6v15h6v3h6v3h6v6H6v9h6v6H3v-3h-6v3h-9v-6h6V6h-15V0h6v-3h6v-3h6z"/></g>
+          <g id="birth-egg" hidden><path fill="#161e34" d="M-6-18H6v3h6v6h3v6h3v15h-3v6H9v3H-9v-3h-6v-6h-3V-3h3v-6h3v-6h6z"/><path fill="#fff9df" d="M-6-12H6v6h6v18H6v3H-6v-3h-6V-6h6z"/><path fill="#f6ce25" d="M0 0h6v6H0zM-6 6h6v6h-6z"/></g>
+          <g id="birth-shells" hidden>
+            <path class="egg-crack" stroke="#161e34" stroke-width="3" d="M0-18v9h-6v6h9v6h-6v9h3v9"/>
+            <g class="egg-fragments" fill="#fff9df" stroke="#161e34" stroke-width="3" stroke-linejoin="miter">
+              <path class="egg-shell-left" d="M0-18h-6v3h-6v6h-3v6h-3v15h3v6h6v3h9v-9h-3V3h6v-6h-9v-6h6z"/>
+              <path class="egg-shell-right" d="M0-18h6v3h6v6h3v6h3v15h-3v6H9v3H0v-9h-3V3h6v-6h-9v-6h6z"/>
+              <rect class="egg-chip" x="-2" y="-2" width="4" height="4"/>
+              <rect class="egg-chip" x="-2" y="-2" width="4" height="4"/>
+              <rect class="egg-chip" x="-2" y="-2" width="4" height="4"/>
+            </g>
+          </g>
+        </svg>
+        <div class="map-markers" aria-label="Destinations"></div>
+        <canvas class="plane-cursor" aria-hidden="true"></canvas>
+      </div>
+      <aside class="journey-detail" id="journey-detail" aria-labelledby="detail-title" hidden>
+        <div class="detail-top"><span class="eyebrow" id="detail-chapter"></span><button class="detail-close" type="button" aria-label="Close destination details">×</button></div>
+        <div class="detail-art" aria-hidden="true"></div>
+        <p class="eyebrow" id="detail-country"></p><h2 id="detail-title"></h2><p class="detail-subtitle" id="detail-subtitle"></p><p class="detail-copy" id="detail-copy"></p>
+        <div class="detail-bottom"><button class="detail-prev" type="button" aria-label="Previous stop">←</button><span id="detail-position" class="eyebrow"></span><button class="detail-next" type="button" aria-label="Next stop">→</button></div>
+        <p class="detail-hint">Click a stop to keep its story open.</p>
+        <a class="detail-gallery-link" href="#gallery-haiphong">See the photo collection <span aria-hidden="true">↓</span></a>
+      </aside>
+    </section>
+    <section class="journey-console" aria-label="Journey playback and stops">
+      <div class="journey-status-row"><p id="journey-status" role="status" aria-live="polite">Hover over a place. Stay for a story.</p><div class="journey-controls" hidden><button id="journey-pause" type="button">Pause <span aria-hidden="true">Ⅱ</span></button><button id="journey-skip" type="button">Skip intro <span aria-hidden="true">→</span></button><button id="journey-replay" type="button" hidden>Replay journey <span aria-hidden="true">↺</span></button></div></div>
+    </section>
+    </div>
+    <ol class="journey-stops journey-photo-stops" aria-label="Photos by location">
+      <li>
+        <a href="#gallery-haiphong" data-stop="0"><span class="stop-number">01</span><span id="stop-haiphong">Haiphong<small>Where it began</small></span><span class="stop-gallery-arrow" aria-hidden="true">↓</span></a>
+        <section class="location-gallery" id="gallery-haiphong" aria-roledescription="carousel" aria-label="Haiphong photos" tabindex="-1">
+          <div class="location-photo-track" tabindex="0" role="group" aria-label="Haiphong photo viewer; use left and right arrow keys">
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 1</span><small>Placeholder · Haiphong</small></div>
+            </figure>
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 2</span><small>Placeholder · Haiphong</small></div>
+            </figure>
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 3</span><small>Placeholder · Haiphong</small></div>
+            </figure>
+          </div>
+          <div class="location-photo-controls" hidden><button type="button" class="photo-prev" aria-label="Previous Haiphong photo" disabled>←</button><span class="photo-count" role="status" aria-live="polite" aria-atomic="true">01 / 03</span><button type="button" class="photo-next" aria-label="Next Haiphong photo">→</button></div>
+          <p class="location-photo-hint">Swipe to browse · Photos coming soon</p>
+          <div class="location-description"><p>I was born and grew up in Haiphong, Vietnam. This is where my journey began.</p></div>
+        </section>
+      </li>
+      <li>
+        <a href="#gallery-kansas" data-stop="1"><span class="stop-number">02</span><span id="stop-kansas">Kansas<small>A first departure</small></span><span class="stop-gallery-arrow" aria-hidden="true">↓</span></a>
+        <section class="location-gallery" id="gallery-kansas" aria-roledescription="carousel" aria-label="Kansas photos" tabindex="-1">
+          <div class="location-photo-track" tabindex="0" role="group" aria-label="Kansas photo viewer; use left and right arrow keys">
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 1</span><small>Placeholder · Kansas</small></div>
+            </figure>
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 2</span><small>Placeholder · Kansas</small></div>
+            </figure>
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 3</span><small>Placeholder · Kansas</small></div>
+            </figure>
+          </div>
+          <div class="location-photo-controls" hidden><button type="button" class="photo-prev" aria-label="Previous Kansas photo" disabled>←</button><span class="photo-count" role="status" aria-live="polite" aria-atomic="true">01 / 03</span><button type="button" class="photo-next" aria-label="Next Kansas photo">→</button></div>
+          <p class="location-photo-hint">Swipe to browse · Photos coming soon</p>
+          <div class="location-description"><p>Kansas was my first time outside Vietnam, and the place I returned to after Japan.</p></div>
+        </section>
+      </li>
+      <li>
+        <a href="#gallery-hongkong" data-stop="2"><span class="stop-number">03</span><span id="stop-hongkong">Hong Kong<small>On exchange</small></span><span class="stop-gallery-arrow" aria-hidden="true">↓</span></a>
+        <section class="location-gallery" id="gallery-hongkong" aria-roledescription="carousel" aria-label="Hong Kong photos" tabindex="-1">
+          <div class="location-photo-track" tabindex="0" role="group" aria-label="Hong Kong photo viewer; use left and right arrow keys">
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 1</span><small>Placeholder · Hong Kong</small></div>
+            </figure>
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 2</span><small>Placeholder · Hong Kong</small></div>
+            </figure>
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 3</span><small>Placeholder · Hong Kong</small></div>
+            </figure>
+          </div>
+          <div class="location-photo-controls" hidden><button type="button" class="photo-prev" aria-label="Previous Hong Kong photo" disabled>←</button><span class="photo-count" role="status" aria-live="polite" aria-atomic="true">01 / 03</span><button type="button" class="photo-next" aria-label="Next Hong Kong photo">→</button></div>
+          <p class="location-photo-hint">Swipe to browse · Photos coming soon</p>
+          <div class="location-description"><p>From Kansas to Hong Kong for my exchange — a new place to live and learn.</p></div>
+        </section>
+      </li>
+      <li>
+        <a href="#gallery-japan" data-stop="3"><span class="stop-number">04</span><span id="stop-japan">Japan<small>A little further</small></span><span class="stop-gallery-arrow" aria-hidden="true">↓</span></a>
+        <section class="location-gallery" id="gallery-japan" aria-roledescription="carousel" aria-label="Japan photos" tabindex="-1">
+          <div class="location-photo-track" tabindex="0" role="group" aria-label="Japan photo viewer; use left and right arrow keys">
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 1</span><small>Placeholder · Japan</small></div>
+            </figure>
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="2 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 2</span><small>Placeholder · Japan</small></div>
+            </figure>
+            <figure class="location-slide" role="group" aria-roledescription="slide" aria-label="3 of 3">
+              <div class="location-photo-placeholder"><span class="photo-pixel-icon" aria-hidden="true"></span><span>Photo 3</span><small>Placeholder · Japan</small></div>
+            </figure>
+          </div>
+          <div class="location-photo-controls" hidden><button type="button" class="photo-prev" aria-label="Previous Japan photo" disabled>←</button><span class="photo-count" role="status" aria-live="polite" aria-atomic="true">01 / 03</span><button type="button" class="photo-next" aria-label="Next Japan photo">→</button></div>
+          <p class="location-photo-hint">Swipe to browse · Photos coming soon</p>
+          <div class="location-description"><p>The next stop after Hong Kong, before heading back to Kansas.</p></div>
+        </section>
+      </li>
+    </ol>
+    <footer class="gallery-footer"><span>More destinations incoming, one trip at a time.</span><a href="#journey">Back to the map ↑</a></footer>
+    <noscript><section class="journey-fallback"><h2>The story so far</h2><p>I was born and grew up in Haiphong, Vietnam. Kansas was my first time outside Vietnam. From Kansas, I went to Hong Kong for my exchange, then to Japan, before returning to Kansas.</p><p>Enable JavaScript to play the journey and explore destination details.</p></section></noscript>
+  </main>
+  <script src="journey.js" defer></script><script src="journey-gallery.js" defer></script><script src="journey-ocean.js" defer></script><script src="journey-cursor.js" defer></script>
+</body>
+</html>

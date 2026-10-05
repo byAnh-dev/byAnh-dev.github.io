@@ -1,0 +1,111 @@
+{
+  "opacityAndLifetime": {
+    "active": {
+      "black": 2,
+      "partial": 0,
+      "visible": 25
+    },
+    "after200ms": {
+      "black": 0,
+      "partial": 0,
+      "visible": 0
+    }
+  },
+  "motion": {
+    "assumptions": [
+      "Normal motion mode; 1280x720 viewport; visible foreground page",
+      "At least 15% smaller alpha cross section makes speed response visibly meaningful",
+      "Continuity means no empty 8px bin at alpha >= 48 through the recent path",
+      "Synthetic pointer inputs drive actual DOM handlers; actual scrollTo drives scroll; no rendering mocks"
+    ],
+    "checks": {
+      "fastIsMeaningfullyThinner": true,
+      "fastPathConnected": true,
+      "scrollPathConnected": true,
+      "visibleSlowAndFast": true
+    },
+    "execution": "Real browser canvas; assign evidence grade after checks and negative controls",
+    "fast": {
+      "continuity": {
+        "emptyBins": 0,
+        "longestGapCssPx": 0,
+        "minimumPeakAlpha": 255,
+        "pass": true,
+        "peaks": [
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      "elapsedMs": 132.20000004768372,
+      "nominalStepCssPx": 60,
+      "populatedColumns": 140,
+      "width": 44
+    },
+    "oracleSource": "User: fluid fast motion and scrolling; faster movement yields a thinner brush",
+    "scroll": {
+      "bridge": {
+        "emptyBins": 0,
+        "longestGapCssPx": 0,
+        "minimumPeakAlpha": 255,
+        "pass": true,
+        "peaks": [
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      "deltaCssPx": 180
+    },
+    "slow": {
+      "continuity": {
+        "emptyBins": 6,
+        "longestGapCssPx": 48,
+        "minimumPeakAlpha": 0,
+        "pass": false,
+        "peaks": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          255,
+          255,
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      "elapsedMs": 1269.899999976158,
+      "nominalStepCssPx": 5,
+      "populatedColumns": 65,
+      "width": 79
+    },
+    "viewport": {
+      "height": 720,
+      "width": 1280
+    },
+    "widthRatioFastToSlow": 0.5569620253164557
+  }
+}
