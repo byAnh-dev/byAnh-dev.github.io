@@ -43,3 +43,7 @@ node scripts/check-site.mjs http://localhost:3100
 The writing pages still contain explicitly labeled sample articles and remain excluded from indexing. The doodle board is still a coming-soon page. The bundled Malinton fonts retain the prototype's personal-use license; review the supplied `public/site/fonts/Readme.txt` before publishing. This migration does not deploy the website or add a CMS.
 
 The previous README is preserved in `docs/archive/previous-site-README.md`.
+
+## Analytics
+
+PostHog and Vercel Speed Insights are configured for production Vercel builds. Add the two PostHog values from `.env` to Vercel's Production environment variables, then redeploy. Local and preview builds do not track visits; session replay is disabled. See [analytics setup and event definitions](docs/analytics.md).

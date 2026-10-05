@@ -1,11 +1,25 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
+import posthog from 'posthog-js'
 import { projectsData } from '@/archive/lib/projects'
 
 export default function ProjectList() {
   return <div className="project-grid">{Object.values(projectsData).map((project, index) => (
-    <Link href={`/archive/projects/${project.slug}/`} key={project.slug} className={`project-card project-${index}`}>
+    <Link
+      href={`/archive/projects/${project.slug}/`}
+      key={project.slug}
+      className={`project-card project-${index}`}
+      onClick={() => {
+        const projectType = index === 0 ? 'applied_ai' : 'full_stack_development'
+        posthog.capture('project_opened', {
+          project_slug: project.slug,
+          project_type: projectType,
+        })
+      }}
+    >
       <div className="project-image">
         <div className="project-image-top"><span>0{index + 1} / {index === 0 ? 'Applied AI' : 'Full-stack development'}</span><ArrowUpRight aria-hidden="true" size={22} /></div>
         <Image src={project.media[0]} alt={`${project.title} application preview`} width={1440} height={810} sizes="(max-width: 700px) 100vw, 50vw" />

@@ -1,6 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import routes from './routes.json'
+import { analyticsMarkup } from './analytics-config.mjs'
 
 type SiteRoute = { file: string } | { redirect: string }
 const siteRoutes: Record<string, SiteRoute> = routes
@@ -14,7 +15,8 @@ export async function servePage(pathname: string) {
     return new Response(null, { status: 308, headers: { Location: route.redirect } })
   }
   const html = await readFile(path.join(process.cwd(), 'public', 'site', route.file), 'utf8')
-  return new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
+  const document = html.replace('</head>', `${analyticsMarkup()}</head>`)
+  return new Response(document, { headers: { 'Content-Type': 'text/html; charset=utf-8' } })
 }
 
 export function sitePaths() {
